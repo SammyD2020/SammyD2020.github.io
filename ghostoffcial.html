@@ -15,15 +15,16 @@
       #heading{
         position: absolute;
         z-index: 99;
-        color: grey;
+        color: ;
         margin:auto;
         left:0;
         right:0;
         top: 0;
         height:70px;
         text-align: center;
+        text-shadow: 2px 2px 2px red;
         max-width:400px;
-        background-color: black;
+        font-size: 20px;
 
       }
 
@@ -373,6 +374,7 @@
           center: {lat: -34.397, lng: 150.644},
           zoom: 18,
           styles: styles,
+          disableDefaultUI: true,
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -384,6 +386,7 @@
               lng: position.coords.longitude,
               enableHighAccuracy: true,
             };
+            addMarker(pos,map);
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -400,6 +403,15 @@
      // eample of requesting repeated position updates.
     function scrollMap(position) {
       // Scrolls the map so that it is centered at (position.coords.latitude, position.coords.longitude).
+    }
+    function addMarker(location,map){
+        var marker= new google.maps.Marker({
+            position: location,
+            map:map,
+
+        })
+
+
     }
 
 
